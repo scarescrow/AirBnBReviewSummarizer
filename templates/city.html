@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/city.css') }}">
+{% endblock %}
+
+{% block content %}
+<h3>Welcome to {{ city }}</h3>
+<script type="text/javascript" src="{{ url_for('static',filename='js/city.js') }}"></script>
+{% endblock %}
