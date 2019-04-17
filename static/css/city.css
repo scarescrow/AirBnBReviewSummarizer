@@ -1,3 +1,30 @@
 .wordcloud {
     margin-left: 10%;
+    margin-top: -10%;
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
+
+.star {
+    color: yellow;
+}
+
+.score {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.tooltipped {
+    margin-bottom: 10px;
+    padding: 0 5px;
+}
+
+.micro {
+    font-size: 8px;
 }

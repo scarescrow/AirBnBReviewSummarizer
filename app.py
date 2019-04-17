@@ -16,14 +16,26 @@ def home():
 def city(city):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
+
     cursor.execute("SELECT words FROM topwords WHERE city = ?", (city,))
-    words = cursor.fetchone()[0]#.encode('ascii', 'ignore')
-    print(words)
+    words = cursor.fetchone()[0]
+
+    cursor.execute("SELECT data FROM hosts WHERE city = ?", (city,))
+    hosts = cursor.fetchone()[0]
+
+    cursor.execute("SELECT topics FROM topics WHERE city = ?", (city,))
+    topics = cursor.fetchone()[0]
+
+    cursor.execute("SELECT places FROM places WHERE city = ?", (city,))
+    places = cursor.fetchone()[0]
+
     cursor.execute("SELECT positive, negative, neutral FROM sentiment WHERE city = ?", (city,))
     sentiments = cursor.fetchone()
     cursor.close()
     conn.close()
-    return render_template("city.html", title=city, city=city, sentiments=sentiments, words=words)
+    return render_template("city.html", title=city, 
+        city=city, sentiments=sentiments, words=words, 
+        hosts=hosts, topics=topics, places=places)
 
 if __name__ == '__main__':
     app.run(debug=True)
