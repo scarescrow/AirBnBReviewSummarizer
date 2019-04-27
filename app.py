@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 import sqlite3
 import os
 import unicodedata
@@ -16,6 +16,14 @@ def home():
 def city(city):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
+
+    cursor.execute("SELECT city FROM hosts")
+    cities = []
+    for row in cursor.fetchall():
+        cities.append(row[0])
+
+    if city not in cities:
+        abort(404)
 
     cursor.execute("SELECT words FROM topwords WHERE city = ?", (city,))
     words = cursor.fetchone()[0]
@@ -38,4 +46,4 @@ def city(city):
         hosts=hosts, topics=topics, places=places)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

@@ -140,9 +140,10 @@
         if (hosts.hasOwnProperty(key)) {
             name = hosts[key]["name"]
             score = hosts[key]["value"].toString()
+            host_words = hosts[key]["top words"].join(",")
             score_fmt = score.slice(2, 4) + "." + score.slice(4, 6) + "%"
             url = airbnb_base + key
-            list_item = "<li><a href='" + url + "'>" + name + "</a><span class='score'>" + score_fmt + "</span><i class='material-icons star'>star</i></li>"
+            list_item = '<li><a href="' + url + '" class="tooltipped" data-position="right" data-tooltip="' + host_words + '" target="_blank">' + name + "</a><span class='score'>" + score_fmt + "</span><i class='material-icons star'>star</i></li>"
             $(".host").append(list_item)
         }
     }
