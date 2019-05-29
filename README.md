@@ -8,9 +8,20 @@ All analysis was performed in python, with results being stored into a SQLite da
 
 ## Web App Screens:
 
+Landing Page:
+
 ![Home Page](screens/home.JPG)
+
+Results:
+
 ![Results Page Top](screens/results_1.JPG)
 ![Results Page Bottom](screens/results_2.JPG)
+
+## Datasets:
+
+* [Boston AirBnB Open Data](https://www.kaggle.com/airbnb/boston)
+* [Seattle AirBnB Open Data](https://www.kaggle.com/airbnb/seattle)
+* [Inside AirBnB Chicago Detailed Review Data](http://insideairbnb.com/get-the-data.html)
 
 ## Techniques Used:
 
